@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE tiles-definitions PUBLIC
+        "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"
+        "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+<tiles-definitions>
+
+    <!-- PC Templates -->
+    <definition name="layout" template="/WEB-INF/jsp/layouts/default.jsp">
+        <put-attribute name="title" value="Normal Site" />
+        <put-attribute name="header" value="/WEB-INF/jsp/layouts/header.jsp" />
+        <put-attribute name="top" value="/WEB-INF/jsp/layouts/top.jsp" />
+        <put-attribute name="left" value="/WEB-INF/jsp/layouts/left.jsp" />
+        <put-attribute name="body" value="" />
+        <put-attribute name="footer" value="/WEB-INF/jsp/layouts/footer.jsp" />
+    </definition>
+    
+    <definition name="error/exception" template="/WEB-INF/jsp/error/exception.jsp" />
+    <definition name="*/*" template="/WEB-INF/jsp/{1}/{2}.jsp" />
+
+    
+<!--     <definition name="/" template="/WEB-INF/jsp/front/index.jsp" /> -->
+    
+    <definition name="adminLayout" template="/WEB-INF/jsp/admin/layouts/default.jsp">
+        <put-attribute name="title" value="Admin Site" />
+        <put-attribute name="header" value="/WEB-INF/jsp/admin/layouts/header.jsp" />
+        <put-attribute name="top" value="/WEB-INF/jsp/admin/layouts/top.jsp" />
+        <put-attribute name="left" value="/WEB-INF/jsp/admin/layouts/left.jsp" />
+        <put-attribute name="body" value="" />
+        <put-attribute name="footer" value="/WEB-INF/jsp/admin/layouts/footer.jsp" />
+    </definition>
+    
+    <definition name="admin/access/login" template="/WEB-INF/jsp/admin/access/login.jsp"/>
+    
+    <definition name="admin/works/popup/*" template="/WEB-INF/jsp/admin/works/popup/{1}.jsp"/>
+    
+    <definition name="admin/error/*" template="/WEB-INF/jsp/admin/error/{1}.jsp"/>
+    
+<!--     <definition name="error/*/*" extends="layout"> -->
+<!-- 		<put-attribute name="body" value="/WEB-INF/jsp/error/{1}/{2}.jsp" /> --> 
+<!-- 	</definition> -->
+	
+    <definition name="admin/*" extends="adminLayout">
+        <put-attribute name="body" value="/WEB-INF/jsp/admin/{1}.jsp" />
+    </definition>
+    
+    <definition name="admin/*/*" extends="adminLayout">
+        <put-attribute name="body" value="/WEB-INF/jsp/admin/{1}/{2}.jsp" />
+    </definition>
+
+    <definition name="admin/*/*/*" extends="adminLayout">
+        <put-attribute name="body" value="/WEB-INF/jsp/admin/{1}/{2}/{3}.jsp" />
+    </definition>
+</tiles-definitions>
